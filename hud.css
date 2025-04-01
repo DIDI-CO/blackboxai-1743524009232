@@ -1,0 +1,118 @@
+/* Game HUD Styles */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+
+.game-hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Health Bar */
+.hud-health {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.health-bar-container {
+    width: 120px;
+    height: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.health-bar {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #ff0000, #ff5e00);
+    transition: width 0.3s;
+    box-shadow: 0 0 5px rgba(255,0,0,0.5);
+}
+
+.health-text {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: white;
+    text-shadow: 0 0 3px black;
+    font-weight: bold;
+}
+
+/* Ammo Counter */
+.hud-ammo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ammo-counter {
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 0 0 5px #00aaff;
+    font-weight: bold;
+    min-width: 30px;
+}
+
+/* Score */
+.hud-score {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.score-counter {
+    font-size: 1.2rem;
+    color: #f5a623;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    font-weight: bold;
+}
+
+/* Mini Map */
+.hud-minimap {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.minimap-display {
+    width: 80px;
+    height: 80px;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid #f5a623;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(245,166,35,0.3);
+}
+
+/* Menu Button */
+.hud-menu-button {
+    display: none; /* Shown on mobile */
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes ammoFlash {
+    0% { color: white; text-shadow: 0 0 5px #00aaff; }
+    100% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+}
+
+@keyframes healthPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.low-health {
+    animation: healthPulse 1s infinite;
+}
